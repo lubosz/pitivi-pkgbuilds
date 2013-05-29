@@ -1,0 +1,36 @@
+# $Id: PKGBUILD 180531 2013-03-22 19:24:55Z heftig $
+# Maintainer: Jan de Groot <jgc@archlinux.org>
+
+pkgname=gst-plugins-ugly-git
+pkgver=1.0.2.37.g04472f6
+pkgrel=1
+pkgdesc="GStreamer Multimedia Framework Ugly Plugins"
+arch=('i686' 'x86_64')
+license=('LGPL')
+provides=('gst-plugins-ugly=99')
+conflicts=('gst-plugins-ugly')
+url="http://gstreamer.freedesktop.org/"
+depends=('gst-plugins-base-libs' 'libdvdread' 'lame' 'libmpeg2' 'a52dec' 'libmad' 'libsidplay' 'libcdio' 'x264' 'opencore-amr')
+options=(!libtool !emptydirs)
+
+source='git://anongit.freedesktop.org/gstreamer/gst-plugins-ugly'
+sha256sums=('SKIP')
+
+_gitname='gst-plugins-ugly'
+
+pkgver() {
+  cd $_gitname
+  git describe --always | sed 's|-|.|g'
+}
+
+build() {
+  cd $_gitname
+  ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
+    --disable-static --enable-experimental
+  make
+}
+
+package() {
+  cd $_gitname
+  make DESTDIR="${pkgdir}" install
+}
