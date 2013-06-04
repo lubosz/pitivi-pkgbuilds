@@ -2,7 +2,7 @@
 # Maintainer: Lubosz Sarnecki <lubosz@gmail.com>
 
 pkgname=gst-plugins-bad-git
-pkgver=1.0.2.1123.gb8cb2b4
+pkgver=1.0.2.1125.g1ac128c
 pkgrel=1
 pkgdesc="GStreamer Multimedia Framework Bad Plugins"
 arch=('i686' 'x86_64')
@@ -26,7 +26,7 @@ pkgver() {
 
 build() {
   cd $_gitname
-  git checkout 407f3e1856e3d7e79c9d743e4ae92538b6dad290
+  #git checkout 407f3e1856e3d7e79c9d743e4ae92538b6dad290
     
   ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
     --disable-static --enable-experimental --disable-fatal-warnings \

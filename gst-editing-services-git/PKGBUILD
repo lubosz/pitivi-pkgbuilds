@@ -3,7 +3,7 @@
 # Contributor: Lubosz Sarnecki <lubosz@gmail.com>
 
 pkgname=gst-editing-services-git
-pkgver=20130409
+pkgver=RELEASE.0.10.1.788.g73bdde6
 pkgrel=1
 pkgdesc='GStreamer editing services (Git version)'
 arch=('i686' 'x86_64')
@@ -16,27 +16,27 @@ provides=('gst-editing-services=99')
 options=('!libtool')
 groups=('gstreamer')
 
-_gitroot='git://anongit.freedesktop.org/gstreamer/gst-editing-services'
+source=('git://anongit.freedesktop.org/gstreamer/gst-editing-services')
+sha256sums=('SKIP')
+#_gitroot='git://github.com/MathieuDuponchelle/PitiviGes.git'
 _gitname='gst-editing-services'
 
+pkgver() {
+  cd $_gitname
+  git describe --always | sed 's|-|.|g'
+}
+
 build() {
-    cd "$srcdir"
+  cd $_gitname
     
-    msg 'Connecting to GIT server...'
-    if [[ -d "$_gitname" ]]; then
-        (cd "$_gitname" && git pull) || return 1
-    else
-        git clone --depth=1 "$_gitroot" "$_gitname" || return 1
-    fi
-    msg 'GIT checkout done'
-    
-    msg 'Starting make...'
-    cd "$_gitname"
-    ./autogen.sh --prefix=/usr || return 1
-    make || return 1
+  #git fetch origin
+  #git checkout audio_mixing
+
+  ./autogen.sh --prefix=/usr || return 1
+  make || return 1
 }
 
 package() {
-    cd "$srcdir/$_gitname"
+  cd $_gitname
     make DESTDIR="$pkgdir" install || return 1
 }
