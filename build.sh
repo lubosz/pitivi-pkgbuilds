@@ -10,15 +10,20 @@ gst-plugins-ugly-git
 gst-libav-git
 gnonlin-git
 gst-editing-services-git
-pitivi-git"
-
-if [ "$1" = "build" ]; then
-  echo "foo"
-fi
+pitivi-git
+wayland-git
+glib2-git
+gtk3-git
+totem-git"
 
 for PACKAGE in $PACKAGES; do
   echo "Building $PACKAGE"
   cd $PACKAGE
-  makepkg -i
+  
+  if [ "$1" = "rebuild" ]; then
+    makepkg -if
+  else
+    makepkg -i
+  fi
   cd ..
 done;
