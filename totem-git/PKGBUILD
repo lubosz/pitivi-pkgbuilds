@@ -26,7 +26,6 @@ pkgver() {
 
 build() {
   cd $_gitname
-  #git checkout V_3_8_2
   sh autogen.sh --prefix=/usr
   make
 }
