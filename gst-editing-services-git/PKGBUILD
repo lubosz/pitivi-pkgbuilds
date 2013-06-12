@@ -3,7 +3,7 @@
 # Contributor: Lubosz Sarnecki <lubosz@gmail.com>
 
 pkgname=gst-editing-services-git
-pkgver=RELEASE.0.10.1.788.g73bdde6
+pkgver=0.10.1.1.d4aee83
 pkgrel=1
 pkgdesc='GStreamer editing services (Git version)'
 arch=('i686' 'x86_64')
@@ -16,21 +16,25 @@ provides=('gst-editing-services=99')
 options=('!libtool')
 groups=('gstreamer')
 
-source=('git://anongit.freedesktop.org/gstreamer/gst-editing-services')
+source=(
+#'git://anongit.freedesktop.org/gstreamer/gst-editing-services'
+#'git://github.com/MathieuDuponchelle/PitiviGes.git'
+'git://github.com/lubosz/gst-editing-services.git'
+)
+
 sha256sums=('SKIP')
-#_gitroot='git://github.com/MathieuDuponchelle/PitiviGes.git'
 _gitname='gst-editing-services'
 
 pkgver() {
   cd $_gitname
-  git describe --always | sed 's|-|.|g'
+  echo $(grep AC_INIT configure.ac | sed 's/AC_INIT(GStreamer Editing Services, //' | sed 's/,//').$(git log --pretty=format:'%h' -n 1)
 }
 
 build() {
   cd $_gitname
     
   #git fetch origin
-  #git checkout audio_mixing
+  git checkout audio_mixing
 
   ./autogen.sh --prefix=/usr || return 1
   make || return 1

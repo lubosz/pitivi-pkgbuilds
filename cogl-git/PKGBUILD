@@ -1,0 +1,46 @@
+# Maintainer: Yosef Or Boczko <yosefor3@walla.com>
+# Contributor: Lubosz Sarnecki <lubosz@gmail.com>
+
+pkgname=cogl-git
+pkgver=1.10.0.655.gd0290eb
+pkgrel=1
+pkgdesc="An object oriented GL/GLES Abstraction/Utility Layer"
+arch=('i686' 'x86_64')
+url="http://www.clutter-project.org/"
+license=('GPL2')
+depends=('libdrm' 'libxext' 'libxdamage' 'libxcomposite' 'gdk-pixbuf2' 'pango' 'wayland')
+makedepends=('mesa' 'gobject-introspection')
+options=(!libtool !emptydirs)
+conflicts=('cogl')
+replaces=('cogl')
+provides=('cogl='$pkgver)
+
+source=("git://git.gnome.org/cogl")
+sha256sums=("SKIP")
+gitname=cogl
+
+pkgver() {
+  cd $gitname
+  git describe --always | sed 's|-|.|g'
+}
+
+build() {
+  cd $gitname
+  ./autogen.sh --prefix=/usr --enable-cairo=yes \
+							 --enable-gdk-pixbuf=yes \
+							 --enable-cogl-pango=yes \
+							 --enable-glx=yes \
+							 --enable-xlib-egl-platform=yes \
+							 --enable-wayland-egl-platform=yes \
+							 --enable-wayland-egl-server=yes \
+							 --enable-introspection=yes \
+							 --enable-gtk-doc
+  make
+}
+
+package() {
+  cd $gitname
+  make DESTDIR="$pkgdir" install
+  ln -s "$pkgdir/usr/lib/libcogl-pango.so.12.1.0" "$pkgdir/usr/lib/libcogl-pango.so.0" 
+  ln -s "$pkgdir/usr/lib/libcogl.so.12.1.0" "$pkgdir/usr/lib/libcogl.so.9" 
+}

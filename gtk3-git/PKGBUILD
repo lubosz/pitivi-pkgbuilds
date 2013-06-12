@@ -4,8 +4,8 @@
 
 pkgname=gtk3-git
 _gitname=gtk+
-pkgver=20130429
-pkgrel=3
+pkgver=3.9.2.35.g5cb26cb
+pkgrel=1
 pkgdesc="GObject-based multi-platform GUI toolkit (git version)"
 arch=('i686' 'x86_64')
 url="http://www.gtk.org/"
