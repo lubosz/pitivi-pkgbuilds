@@ -2,7 +2,7 @@
 # Maintainer: Lubosz Sarnecki <lubosz@gmail.com>
 
 pkgname='gst-plugins-base-git'
-pkgver=1.0.2.543.gc06377b
+pkgver=1.1.1.48.gf68b6c2
 pkgrel=1
 pkgdesc="GStreamer Multimedia Framework Base Plugins"
 arch=('i686' 'x86_64')

@@ -3,7 +3,7 @@
 
 pkgname=libxi-git
 _gitname=libXi
-pkgver=1.7.1.16.g661c45c
+pkgver=1.7.2
 pkgrel=1
 pkgdesc="X11 Input extension library (git version)"
 arch=('i686' 'x86_64')

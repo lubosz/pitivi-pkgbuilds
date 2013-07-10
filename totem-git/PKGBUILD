@@ -2,7 +2,7 @@
 # Contributor: Lubosz Sarnecki <lubosz@gmail.com>
 
 pkgname=totem-git
-pkgver=V_3_5_90.503.g976d10d
+pkgver=V_3_5_90.505.g0a13eb7
 pkgrel=1
 pkgdesc="A GNOME integrated movie player based on Gstreamer. (GIT version)"
 url="http://projects.gnome.org/totem/"

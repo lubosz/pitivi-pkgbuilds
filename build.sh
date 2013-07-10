@@ -7,6 +7,7 @@ gst-plugins-base-git
 gst-plugins-good-git
 gst-plugins-bad-git
 gst-plugins-ugly-git
+gst-plugins-gl-git
 gst-libav-git
 gnonlin-git
 gst-editing-services-git
@@ -20,6 +21,12 @@ clutter-git
 clutter-gst
 cogl-git
 totem-git"
+
+WAYLANDPACKAGES="mesa-git
+wayland-git
+weston-git
+glib2-git
+gtk3-git"
 
 if [ "$1" = "totem" ]; then
   PACKAGES=$TOTEMPACKAGES
