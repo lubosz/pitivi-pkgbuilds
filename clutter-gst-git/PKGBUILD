@@ -1,0 +1,51 @@
+# Current maintainer: Kozec <kozec at kozec dot com>
+# Contributor: Alex Anthony <alex.anthony28991 at googlemail.com>
+# Adapted from PKGBUILD by atie H. <atie.at.matrix@gmail.com>
+# Contributor: Lubosz Sarnecki <lubosz@gmail.com>
+
+pkgname=clutter-gst-git
+pkgver=3.0.0.559.9057762
+pkgrel=1
+pkgdesc="Gstreamer bindings for Clutter"
+arch=('i686' 'x86_64')
+url="http://clutter-project.org/"
+license=('LGPL')
+depends=('clutter' 'gst-plugins-base-git' 'cogl')
+#depends=('clutter' 'gst-plugins-base-git' 'cogl' 'gobject-introspection-git')
+makedepends=('gtk-doc' 'git')
+options=('!libtool')
+provides=('clutter-gst='$pkgver)
+conflicts=('clutter-gst')
+
+source=("git://git.gnome.org/clutter-gst")
+md5sums=("SKIP")
+gitname="clutter-gst"
+
+pkgver() {
+  cd $gitname
+  
+  s="m4_define(clutter_gst_"
+  
+  maj=$(grep $s"major" configure.ac | sed 's/'$s'major_version, //' | sed 's/)//')
+  min=$(grep $s"minor_version" configure.ac | sed 's/'$s'minor_version, //' | sed 's/)//')
+  mic=$(grep $s"micro_version" configure.ac | sed 's/'$s'micro_version, //' | sed 's/)//')
+  
+  version=$maj.$min.$mic
+  hash=$(git log --pretty=format:'%h' -n 1)
+  revision=$(git rev-list --count HEAD)
+  
+  echo $version.$revision.$hash
+}
+
+build() {
+  cd $gitname
+  
+  sed -i 's/env python/env python2/' scripts/pso2h.py
+  ./autogen.sh --prefix=/usr
+  make
+}
+
+package() {
+  cd $gitname
+  make DESTDIR=$pkgdir install
+}

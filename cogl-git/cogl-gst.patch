@@ -1,0 +1,31 @@
+diff --git a/cogl-gst/Makefile.am b/cogl-gst/Makefile.am
+index 621158a..3b7158d 100644
+--- a/cogl-gst/Makefile.am
++++ b/cogl-gst/Makefile.am
+@@ -41,26 +41,6 @@ AM_CPPFLAGS = \
+ cogl_gstheadersdir = $(includedir)/cogl/cogl-gst
+ cogl_gstheaders_HEADERS = $(source_h)
+ 
+-plugin_source_c = \
+-	$(srcdir)/cogl-gst-plugin.c \
+-	$(NULL)
+-
+-libgstcogl_la_SOURCES =	\
+-	$(plugin_source_c)      \
+-	$(NULL)
+-
+-plugin_LTLIBRARIES = libgstcogl.la
+-
+-libgstcogl_la_CFLAGS = $(COGL_DEP_CFLAGS) $(COGL_GST_DEP_CFLAGS) $(COGL_EXTRA_CFLAGS) $(MAINTAINER_CFLAGS)
+-libgstcogl_la_LIBADD = \
+-	$(top_builddir)/cogl/libcogl.la \
+-	$(builddir)/libcogl-gst.la
+-libgstcogl_la_LIBADD += $(COGL_DEP_LIBS) $(COGL_GST_DEP_LIBS) $(COGL_EXTRA_LDFLAGS)
+-libgstcogl_la_LDFLAGS =	\
+-	-avoid-version -no-undefined		\
+-	$(NULL)
+-
+-
+ pc_files = cogl-gst.pc
+ 
+ pkgconfigdir = $(libdir)/pkgconfig

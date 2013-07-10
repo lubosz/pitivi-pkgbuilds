@@ -1,0 +1,35 @@
+diff --git a/build/clutter.modules b/build/clutter.modules
+index 2d1db74..1533c98 100644
+--- a/build/clutter.modules
++++ b/build/clutter.modules
+@@ -176,7 +176,7 @@
+   </autotools>
+ 
+   <autotools id="cogl">
+-    <pkg-config>cogl-1.0.pc</pkg-config>
++    <pkg-config>cogl2.pc</pkg-config>
+     <branch revision="cogl-1.10"/>
+     <dependencies>
+       <dep package="glib"/>
+diff --git a/configure.ac b/configure.ac
+index b7a7c22..0a1d2e5 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -212,7 +212,7 @@ experimental_backend=no
+ experimental_input_backend=no
+ 
+ # base dependencies for core
+-CLUTTER_BASE_PC_FILES="cogl-1.0 >= $COGL_REQ_VERSION cairo-gobject >= $CAIRO_REQ_VERSION atk >= $ATK_REQ_VERSION pangocairo >= $PANGO_REQ_VERSION cogl-pango-1.0 json-glib-1.0 >= $JSON_GLIB_REQ_VERSION"
++CLUTTER_BASE_PC_FILES="cogl2 >= $COGL_REQ_VERSION cairo-gobject >= $CAIRO_REQ_VERSION atk >= $ATK_REQ_VERSION pangocairo >= $PANGO_REQ_VERSION cogl-pango2 json-glib-1.0 >= $JSON_GLIB_REQ_VERSION"
+ 
+ # private base dependencies
+ CLUTTER_BASE_PC_FILES_PRIVATE=""
+@@ -1091,7 +1091,7 @@ AM_CONDITIONAL([BUILD_GTK_DOC], [test "x$enable_gtk_doc" = "xyes" || test ! -f "
+ CAIRO_PREFIX="`$PKG_CONFIG --variable=prefix cairo`"
+ GLIB_PREFIX="`$PKG_CONFIG --variable=prefix glib-2.0`"
+ PANGO_PREFIX="`$PKG_CONFIG --variable=prefix pango`"
+-COGL_PREFIX="`$PKG_CONFIG --variable=prefix cogl-1.0`"
++COGL_PREFIX="`$PKG_CONFIG --variable=prefix cogl2`"
+ ATK_PREFIX="`$PKG_CONFIG --variable=prefix atk`"
+ AC_SUBST(CAIRO_PREFIX)
+ AC_SUBST(GLIB_PREFIX)
