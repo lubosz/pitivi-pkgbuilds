@@ -76,7 +76,7 @@ class Package:
     parser = OutOfDateParser(strict=False)
     parser.feed(self.aurHTML)
     if parser.outOfDate:
-      return "out of date"
+      return "\033[1;31m" + "[out of date]" + "\033[0m"
     else:
       return ""
       

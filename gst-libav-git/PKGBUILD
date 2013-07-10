@@ -2,7 +2,8 @@
 # Maintainer: Lubosz Sarnecki <lubosz@gmail.com>
 
 pkgname=gst-libav-git
-pkgver=1.0.6
+_gitname=gst-libav
+pkgver=1.1.1.1.1635.85a64d9
 pkgrel=1
 pkgdesc="Gstreamer libav Plugin"
 arch=('i686' 'x86_64')
@@ -11,44 +12,29 @@ url="http://gstreamer.freedesktop.org/"
 depends=('gst-plugins-base-git' 'bzip2')
 makedepends=('yasm')
 options=(!libtool !emptydirs)
-provides=("gst-ffmpeg=$pkgver-$pkgrel")
+provides=("gst-libav=$pkgver-$pkgrel" "gst-ffmpeg=$pkgver-$pkgrel")
 conflicts=("gst-libav" "gst-ffmpeg")
 
-_gitroot='git://anongit.freedesktop.org/gstreamer/gst-libav'
-_gitname='gst-libav'
+source=('git://anongit.freedesktop.org/gstreamer/gst-libav')
+sha256sums=('SKIP')
+
+pkgver() {
+  cd $_gitname
+  version=$(grep AC_INIT configure.ac | sed 's/AC_INIT(GStreamer libav, //' | sed 's/,//')
+  hash=$(git log --pretty=format:'%h' -n 1)
+  revision=$(git rev-list --count HEAD)
+  
+  echo $version.$revision.$hash
+}
 
 build() {
-    cd "$srcdir"
-
-    msg 'Connecting to GIT server...'
-    if [[ -d "$_gitname" ]]; then
-        (cd "$_gitname" && git pull origin)
-    else
-        git clone --depth=1 "$_gitroot" "$_gitname"
-    fi
-    
-    cd "$_gitname"
-    if test ! -f common/gst-autogen.sh;
-    then
-        msg '+ Setting up common submodule'
-        git submodule init
-    fi
-    git submodule update
-    cd ..
-    
-    msg 'GIT checkout done or server timeout'
-    msg 'Starting make...'
-    
-    rm -rf "$_gitname-build"
-    cp -r "$_gitname" "$_gitname-build"
-    cd "$_gitname-build"
-
+  cd $_gitname
   ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
     --disable-static --with-libav-extra-configure="--enable-runtime-cpudetect"
   make
 }
 
 package() {
-  cd $srcdir/$_gitname-build
+  cd $_gitname
   make DESTDIR="${pkgdir}" install
 }

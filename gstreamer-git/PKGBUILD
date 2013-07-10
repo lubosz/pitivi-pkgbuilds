@@ -3,7 +3,7 @@
 # Contributor: Lubosz Sarnecki <lubosz@gmail.com>
 
 pkgname=gstreamer-git
-pkgver=1.1.1.1.14934.05bbd1b
+pkgver=1.1.1.1.14936.ba4ec10
 pkgrel=1
 pkgdesc='GStreamer Multimedia Framework (Git version)'
 arch=('i686' 'x86_64')
