@@ -4,7 +4,7 @@
 # Contributor: William Rea <sillywilly@gmail.com>
  
 pkgname=gnonlin-git
-pkgver=0.11.89.1.698.560d53b
+pkgver=0.11.89.1.700.1b0217d
 pkgrel=1
 pkgdesc='A library for creating non-linear video editors'
 arch=('i686' 'x86_64')

@@ -4,7 +4,7 @@
 # Contributor: Lubosz Sarnecki <lubosz@gmail.com>
 
 pkgname=clutter-gst-git
-pkgver=3.0.0.559.9057762
+pkgver=2.99.0.572.3d281ed
 pkgrel=1
 pkgdesc="Gstreamer bindings for Clutter"
 arch=('i686' 'x86_64')
