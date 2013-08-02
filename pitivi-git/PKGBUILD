@@ -18,8 +18,7 @@ provides=('pitivi')
 conflicts=('pitivi')
 url='http://www.pitivi.org/'
 
-#source=('git://git.gnome.org/pitivi')
-source=('git://github.com/lubosz/pitivi.git#branch=help')
+source=('git://git.gnome.org/pitivi')
 _gitname='pitivi'
 md5sums=('SKIP')
 
