@@ -9,12 +9,14 @@ gst-plugins-bad-git
 gst-plugins-ugly-git
 gst-plugins-gl-git
 gst-libav-git
-cogl-git
-clutter-git
-clutter-gst-git
 gnonlin-git
 gst-editing-services-git
 pitivi-git"
+
+#cogl-git
+#clutter-git
+#clutter-gst-git
+
 
 TOTEMPACKAGES="wayland-git
 glib2-git
