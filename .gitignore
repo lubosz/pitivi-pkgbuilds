@@ -3,3 +3,16 @@
 */src
 *.gz
 *~
+
+gnonlin-git/gnonlin/
+gst-devtools-git/gst-devtools/
+gst-editing-services-git/gst-editing-services/
+gst-libav-git/gst-libav/
+gst-plugins-bad-git/gst-plugins-bad/
+gst-plugins-base-git/gst-plugins-base/
+gst-plugins-gl-git/
+gst-plugins-good-git/gst-plugins-good/
+gst-plugins-ugly-git/gst-plugins-ugly/
+gstreamer-git/gstreamer/
+pitivi-git/pitivi/
+
