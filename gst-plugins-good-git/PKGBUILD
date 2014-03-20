@@ -2,7 +2,7 @@
 # Maintainer: Lubosz Sarnecki <lubosz@gmail.com>
 
 pkgname=gst-plugins-good-git
-pkgver=1.1.2.1.13155.e0abd2e
+pkgver=1.1.3.1.13303.5d21f8f
 pkgrel=1
 pkgdesc="GStreamer Multimedia Framework Good Plugins"
 arch=('i686' 'x86_64')

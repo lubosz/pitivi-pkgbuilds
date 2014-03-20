@@ -3,13 +3,13 @@
 # Contributor: Thijs Vermeir <thijsvermeir@gmail.com>
 
 pkgname=gst-editing-services-git
-pkgver=0.11.89.1.1681.5c8e273
+pkgver=1.1.90.1.1827.636dcc3
 pkgrel=1
 pkgdesc='GStreamer editing services (Git version)'
 arch=('i686' 'x86_64')
 license=('LGPL')
 url='http://gstreamer.freedesktop.org/modules/gst-editing-services.html'
-depends=('gst-plugins-base-git')
+depends=('gst-plugins-base')
 conflicts=('gst-editing-services')
 makedepends=('git' 'intltool' 'pkgconfig' 'gtk-doc')
 provides=('gst-editing-services='$pkgver)

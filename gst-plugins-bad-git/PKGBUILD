@@ -2,7 +2,7 @@
 # Maintainer: Lubosz Sarnecki <lubosz@gmail.com>
 
 pkgname=gst-plugins-bad-git
-pkgver=1.1.2.1.14309.8c60e42
+pkgver=1.2.1.14522.881ecb9
 pkgrel=1
 pkgdesc="GStreamer Multimedia Framework Bad Plugins"
 arch=('i686' 'x86_64')
@@ -10,11 +10,12 @@ license=('LGPL')
 provides=('gst-plugins-bad='$pkgver)
 conflicts=('gst-plugins-bad')
 url="http://gstreamer.freedesktop.org/"
-depends=('mjpegtools' 'gst-plugins-base-git' 'curl' 'chromaprint' 'libmms' 'faad2' 'mpg123' 'faac' 'celt' 'libdca' 'soundtouch' 'spandsp' 'libdvdnav' 'libmodplug' 'libgme' 'opus' 'wayland')
+depends=('mjpegtools' 'gst-plugins-base' 'curl' 'chromaprint' 'libmms' 'faad2' 'mpg123' 'faac' 'celt' 'libdca' 'soundtouch' 'spandsp' 'libdvdnav' 'libmodplug' 'libgme' 'opus' 'wayland')
 makedepends=('schroedinger' 'libexif' 'libdvdread' 'libvdpau' 'libmpeg2')
 options=(!libtool !emptydirs)
 
-source='git+git://anongit.freedesktop.org/gstreamer/gst-plugins-bad'
+#source='git+git://anongit.freedesktop.org/gstreamer/gst-plugins-bad'
+source='git+file:///home/bmonkey/workspace/gst/gst-plugins-bad#tag=1.2.1'
 sha256sums=('SKIP')
 
 _gitname='gst-plugins-bad'

@@ -1,9 +1,9 @@
-# Maintainer: Kerrick Staley <mail@kerrickstaley.com>
+# Maintainer: Lubosz Sarnecki <lubosz@gmail.com>
+# Contributor: Kerrick Staley <mail@kerrickstaley.com>
 # Contributor: Jan de Groot <jgc@archlinux.org>
-# Contributor: Lubosz Sarnecki <lubosz@gmail.com>
 
 pkgname=gstreamer-git
-pkgver=1.1.2.1.14975.d73b4ed
+pkgver=1.1.4.1.15042.8ba5fb0
 pkgrel=1
 pkgdesc='GStreamer Multimedia Framework (Git version)'
 arch=('i686' 'x86_64')
