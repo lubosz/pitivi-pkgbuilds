@@ -28,10 +28,7 @@ pkgver() {
 }
 
 build() {
-  cd $_gitname
-  #patch -p1 < ../../headers.patch
-  patch -p1 < ../../pkconfig.patch
-  cd validate
+  cd $_gitname/validate
   ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var
   make
   

@@ -10,10 +10,11 @@ gst-plugins-gl-git
 gst-plugins-ugly-git
 pitivi-git"
 
+mkdir old
+
 for PACKAGE in $PACKAGES; do
   echo "Updating $PACKAGE"
   #cd $PACKAGE
-  mkdir old
   mv $PACKAGE old/$PACKAGE
   packer -G $PACKAGE
   #if [ "$2" = "rebuild" ]; then
@@ -23,3 +24,4 @@ for PACKAGE in $PACKAGES; do
   #fi
   #cd ..
 done;
+rm *.tar.gz
