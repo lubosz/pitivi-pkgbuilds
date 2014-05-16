@@ -16,12 +16,7 @@ provides=('gst-editing-services='$pkgver)
 options=('!libtool')
 groups=('gstreamer')
 
-source=(
-'git://anongit.freedesktop.org/gstreamer/gst-editing-services'
-#'git://git.collabora.co.uk/git/user/tsaunier/gst-editing-service#branch=master'
-#'git://github.com/MathieuDuponchelle/PitiviGes.git'
-#'git://github.com/lubosz/gst-editing-services.git'
-)
+source=('git://anongit.freedesktop.org/gstreamer/gst-editing-services')
 
 sha256sums=('SKIP')
 _gitname='gst-editing-services'
